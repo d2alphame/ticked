@@ -22,6 +22,7 @@ while(<>) {
             next;
         }
 
+        # If the following isn't a blank line, then continue with processing the supposed H1
         $_ = $tmplines;
 
     }
@@ -31,16 +32,19 @@ while(<>) {
     # 1 non-whitespace character. They must also be followed by a blank line
     if(/^====\t\s*[^\s].*/) {
 
-        # If we had something that looked like an H1, then read the next line
-        # to ensure it's blank. If it is, then the previous line was an H1
+        # If we had something that looked like an H2, then read the next line
+        # to ensure it's blank. If it is, then the previous line was an H2
         $tmplines = $_;
         $_ = <>;                 
 
         if(/^\s*$/) {
-            $tmplines =~ s%^====\t\s*([^\s].*)%<h1>$1</h1>%;
+            $tmplines =~ s%^====\t\s*([^\s].*)%<h2>$1</h2>%;
             print $tmplines;
             next;
         }
+
+        # If the following isn't a blank line, then continue with processing the supposed H2
+        $_ = $tmplines;
 
     }
 
