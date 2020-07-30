@@ -2,13 +2,7 @@ use v5.26;
 
 my $tmplines;                           # For temporarily holding a line
 my @tokens;                             # For use as a stack for 
-my $h1      = 1;
-my $h2      = 2;
-my $h3      = 3;
-my $hr      = 4;
-my $p       = 5;
-my $bq      = 6;
-my $blank   = 7;
+
 
 # Read files specified in stdin
 while(<>) {
@@ -27,6 +21,8 @@ while(<>) {
             print $tmplines;
             next;
         }
+
+        $_ = $tmplines;
 
     }
 
