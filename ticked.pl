@@ -20,16 +20,64 @@ my $lines   = "";
 # Read files specified in stdin
 while(<>) {
 
-    /^#####*\t\s*[^\s].*$/  &&  push @tokens, $h1       and next;           # H1
-    /^=====*\t\s*[^\s].*$/  &&  push @tokens, $h2       and next;           # H2
-    /^-----*\t\s*[^\s].*$/  &&  push @tokens, $h3       and next;           # H3
-    /^````*\s*$/            &&  push @tokens, $code     and next;           # Code
-    /^\s*$/                 &&  push @tokens, $blank    and next;           # Blank
-    /^\s*#\t\s*[^\s].*/     &&  push @tokens, $oli      and next;           # Ordered list item
-    /^\s*\+\t\s*[^\s].*/    &&  push @tokens, $uli      and next;           # Unordered list item
-    /^\s*_____*\s*$/        &&  push @tokens, $hr       and next;
-	/^\t\s*[^\s].*/			&&	push @tokens, $bq		and next;
-                                push @tokens, $p        and next;
+    if(/^#####*\t\s*[^\s].*$/) {
+		push @tokens, $h1;
+		$lines .= $_;
+		next;
+	}
+
+	if(/^=====*\t\s*[^\s].*$/) {
+		push @tokens, $h2;
+		$lines .= $_;
+		next;
+	}
+
+    if(/^-----*\t\s*[^\s].*$/) {
+		push @tokens, $h3;
+		$lines .= $_;
+		next;
+	}
+
+    if(/^````*\s*$/) { 
+		push @tokens, $code;
+		$lines .= $_;
+		next;
+	}
+
+    if(/^\s*$/) {
+		push @tokens, $blank;
+		$lines .= $_;
+		next;
+	}
+
+    if(/^\s*#\t\s*[^\s].*/) {
+		push @tokens, $oli;
+		$lines .= $_;
+		next;
+	}
+
+	if(/^\s*\+\t\s*[^\s].*/) {
+		push @tokens, $uli;
+		$lines .= $_;
+		next;
+	}
+
+    if(/^\s*_____*\s*$/) {
+		push @tokens, $hr;
+		$lines .= $_;
+		next;
+	}
+
+	if(/^\t\s*[^\s].*/) {
+		push @tokens, $bq;
+		$lines .= $_;
+		next;
+	}
+
+    push @tokens, $p
+	$lines .= $_;
+	next;
+	
 }
 
 say "@tokens";
