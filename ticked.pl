@@ -27,7 +27,7 @@ while(<>) {
     /^\s*$/                 &&  push @tokens, $blank    and next;           # Blank
     /^\s*#\t\s*[^\s].*/     &&  push @tokens, $oli      and next;           # Ordered list item
     /^\s*\+\t\s*[^\s].*/    &&  push @tokens, $uli      and next;           # Unordered list item
-    /^\s*---\s*$/           &&  push @tokens, $hr       and next;
+    /^\s*_____*\s*$/        &&  push @tokens, $hr       and next;
 	/^\t\s*[^\s].*/			&&	push @tokens, $bq		and next;
                                 push @tokens, $p        and next;
 }
