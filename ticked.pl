@@ -9,45 +9,23 @@ my $hr      = 4;
 my $p       = 5;
 my $bq      = 6;
 my $blank   = 7;
+my $oli     = 8;        # Ordered list item
+my $uli     = 9;        # Unordered list item
+my $dl      = 10;       # Definition list
+my $dli     = 11;       # Definition list item
+
+my $lines   = "";
 
 # Read files specified in stdin
 while(<>) {
 
-    # H1 begins with 4 hashes (#) and at least 1 tab and must contain at least
-    # 1 non-whitespace character. They must also be followed by a blank line
-    if(/^####\t\s*[^\s].*/) {
-
-        # If we had something that looked like an H1, then read the next line
-        # to ensure it's blank. If it is, then the previous line was an H1
-        $tmplines = $_;
-        $_ = <>;                 
-
-        if(/^\s*$/) {
-            $tmplines =~ s%^####\t\s*([^\s].*)%<h1>$1</h1>%;
-            print $tmplines;
-            next;
-        }
-
-    }
-
-
-    # H2 begins with 4 equals (=) and at least 1 tab and must contain at least
-    # 1 non-whitespace character. They must also be followed by a blank line
-    if(/^====\t\s*[^\s].*/) {
-
-        # If we had something that looked like an H1, then read the next line
-        # to ensure it's blank. If it is, then the previous line was an H1
-        $tmplines = $_;
-        $_ = <>;                 
-
-        if(/^\s*$/) {
-            $tmplines =~ s%^====\t\s*([^\s].*)%<h1>$1</h1>%;
-            print $tmplines;
-            next;
-        }
-
-    }
-
-
-
+    /^#####*\t\s*[^\s].*$/  &&  push @tokens, $h1    and next;           # H1
+    /^=====*\t\s*[^\s].*$/  &&  push @tokens, $h2    and next;           # H2
+    /^-----*\t\s*[^\s].*$/  &&  push @tokens, $h3    and next;           # H3
+    /^\s*$/                 &&  push @tokens, $blank and next;           # Blank
+    /^\s*#\t\s*.*/          &&  push @tokens, $oli   and next;           # Ordered list item
+    /^\s*\+\t\s*.*/         &&  push @tokens, $uli   and next;           # Unordered list item
+                                push @tokens, $p     and next;
 }
+
+say "@tokens";
