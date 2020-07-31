@@ -13,6 +13,7 @@ my $oli     = 8;        # Ordered list item
 my $uli     = 9;        # Unordered list item
 my $dl      = 10;       # Definition list
 my $dli     = 11;       # Definition list item
+my $code    = 12;
 
 my $lines   = "";
 
@@ -22,10 +23,11 @@ while(<>) {
     /^#####*\t\s*[^\s].*$/  &&  push @tokens, $h1    and next;           # H1
     /^=====*\t\s*[^\s].*$/  &&  push @tokens, $h2    and next;           # H2
     /^-----*\t\s*[^\s].*$/  &&  push @tokens, $h3    and next;           # H3
+    /^````*\s*$/            &&  push @tokens, $code  and next;           # Code
     /^\s*$/                 &&  push @tokens, $blank and next;           # Blank
-    /^\s*#\t\s*.*/          &&  push @tokens, $oli   and next;           # Ordered list item
-    /^\s*\+\t\s*.*/         &&  push @tokens, $uli   and next;           # Unordered list item
-                                push @tokens, $p     and next;
+    /^\s*#\t\s*[^\s].*/     &&  push @tokens, $oli   and next;           # Ordered list item
+    /^\s*\+\t\s*[^\s].*/    &&  push @tokens, $uli   and next;           # Unordered list item
+                                push @tokens, $p     and next;          
 }
 
 say "@tokens";
