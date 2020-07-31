@@ -1,6 +1,6 @@
 use v5.26;
 
-my $tmplines;                           # For temporarily holding a line
+my $tmplines = "";                      # For temporarily holding a line
 my @tokens;                             # For use as a stack for 
 my $h1      = 1;
 my $h2      = 2;
@@ -20,14 +20,16 @@ my $lines   = "";
 # Read files specified in stdin
 while(<>) {
 
-    /^#####*\t\s*[^\s].*$/  &&  push @tokens, $h1    and next;           # H1
-    /^=====*\t\s*[^\s].*$/  &&  push @tokens, $h2    and next;           # H2
-    /^-----*\t\s*[^\s].*$/  &&  push @tokens, $h3    and next;           # H3
-    /^````*\s*$/            &&  push @tokens, $code  and next;           # Code
-    /^\s*$/                 &&  push @tokens, $blank and next;           # Blank
-    /^\s*#\t\s*[^\s].*/     &&  push @tokens, $oli   and next;           # Ordered list item
-    /^\s*\+\t\s*[^\s].*/    &&  push @tokens, $uli   and next;           # Unordered list item
-                                push @tokens, $p     and next;          
+    /^#####*\t\s*[^\s].*$/  &&  push @tokens, $h1       and next;           # H1
+    /^=====*\t\s*[^\s].*$/  &&  push @tokens, $h2       and next;           # H2
+    /^-----*\t\s*[^\s].*$/  &&  push @tokens, $h3       and next;           # H3
+    /^````*\s*$/            &&  push @tokens, $code     and next;           # Code
+    /^\s*$/                 &&  push @tokens, $blank    and next;           # Blank
+    /^\s*#\t\s*[^\s].*/     &&  push @tokens, $oli      and next;           # Ordered list item
+    /^\s*\+\t\s*[^\s].*/    &&  push @tokens, $uli      and next;           # Unordered list item
+    /^\s*---\s*$/           &&  push @tokens, $hr       and next;
+	/^\t\s*[^\s].*/			&&	push @tokens, $bq		and next;
+                                push @tokens, $p        and next;
 }
 
 say "@tokens";
