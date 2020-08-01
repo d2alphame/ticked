@@ -11,7 +11,7 @@ my $bq      = 6;
 my $blank   = 7;
 my $oli     = 8;        # Ordered list item
 my $uli     = 9;        # Unordered list item
-my $dl      = 10;       # Definition list
+my $dt      = 10;       # Definition term
 my $dli     = 11;       # Definition list item
 my $code    = 12;
 
@@ -68,16 +68,23 @@ while(<>) {
 		next;
 	}
 
+	if(/^\s*-\s[^\s].*$/) {
+		push @tokens, $dt;
+		$lines .= $_;
+		next;
+	}
+
 	if(/^\t\s*[^\s].*/) {
 		push @tokens, $bq;
 		$lines .= $_;
 		next;
 	}
 
-    push @tokens, $p
+    push @tokens, $p;
 	$lines .= $_;
 	next;
-	
+
 }
 
 say "@tokens";
+print $lines;
