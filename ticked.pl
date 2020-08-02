@@ -1,7 +1,7 @@
 use v5.26;
 
 my $tmplines = "";                      # For temporarily holding a line
-my @tokens;                             # For use as a stack for
+my @tokens;                             # 'Types' of lines are stored here
 my $start 	= 0;
 my $h1      = 1;
 my $h2      = 2;
