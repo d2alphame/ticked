@@ -1,7 +1,8 @@
 use v5.26;
 
 my $tmplines = "";                      # For temporarily holding a line
-my @tokens;                             # For use as a stack for 
+my @tokens;                             # For use as a stack for
+my $start 	= 0;
 my $h1      = 1;
 my $h2      = 2;
 my $h3      = 3;
@@ -12,12 +13,15 @@ my $blank   = 7;
 my $oli     = 8;        # Ordered list item
 my $uli     = 9;        # Unordered list item
 my $dt      = 10;       # Definition term
-my $dli     = 11;       # Definition list item
-my $code    = 12;
+my $code    = 11;
+my $edl		= 12;		# Marks the end of a definition list
 
+my $buffer 	= "";
 my $lines   = "";
 
-# Read files specified in stdin
+push @tokens, $start;
+
+# Read lines from files specified in stdin
 while(<>) {
 
     if(/^#####*\t\s*[^\s].*$/) {
@@ -85,6 +89,8 @@ while(<>) {
 	next;
 
 }
+
+
 
 say "@tokens";
 print $lines;
