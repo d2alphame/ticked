@@ -24,19 +24,19 @@ push @tokens, $start;
 # Read lines from files specified in stdin
 while(<>) {
 
-    if(/^#####*\t\s*[^\s].*$/) {
+    if(/^#####*\t\s*([^\s].*)$/) {
 		push @tokens, $h1;
+		$lines .= $1;
+		next;
+	}
+
+	if(/^=====*\t\s*([^\s].*)$/) {
+		push @tokens, $1;
 		$lines .= $_;
 		next;
 	}
 
-	if(/^=====*\t\s*[^\s].*$/) {
-		push @tokens, $h2;
-		$lines .= $_;
-		next;
-	}
-
-    if(/^-----*\t\s*[^\s].*$/) {
+    if(/^-----*\t\s*([^\s].*)$/) {
 		push @tokens, $h3;
 		$lines .= $_;
 		next;
