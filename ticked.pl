@@ -1,32 +1,48 @@
 use v5.26;
 
-my $holding_blank = 0;					# Set to 1 whenever we read a blank line
-my $temp;
+my $first;
+my $second;
 
+$first = <>;
+$second = <>;
 
-# Read files specified in stdin
 while(<>) {
 
 	if(/^\s*$/) {
-		$holding_blank = 1;
-	}
+		if($first =~ /^\s*$/ && $second =~ s%^####\t([^\s].*)$%<h1>$1</h1>%) {
+			print $second;
+			$first = $second;
+			$second = $_;
+			next;
+		}
 
-	if($holding_blank) {
-		$temp = <>;
-		$_ = <>;
+		if($first =~ /^\s*$/ && $second =~ s%^====\t([^\s].*)$%<h2>$1</h2>%) {
+			print $second;
+			$first = $second;
+			$second = $_;
+			next;
+		}
 
-		if(/^\s*$/) {
-			if($temp =~ s%^####\t([^\s].*)$%<h1>$1</h1>%) {
-				next;
-			}
-			if($temp =~ s%^====\t([^\s].*)$%<h2>$1</h2>%) {
-				next;
-			}
-			if($temp =~ s%^----\t([^\s].*)$%<h3>$1</h3>%) {
-				next;
-			}
+		if($first =~ /^\s*$/ && $second =~ s%^----\t([^\s].*)$%<h3>$1</h3>%) {
+			print $second;
+			$first = $second;
+			$second = $_;
+			next;
 		}
 
 	}
 
+	if($second =~ /^\s*$/) {
+		if($_ =~ s%^(\t*)#\t([^\s].*)$%<li>$2</li>%) {
+			say '<ol>';
+			print;
+			$first = $second;
+			$second = $_;
+			next;
+		}
+	}
+
+
+	$first = $second;
+	$second = $_;
 }
