@@ -25,9 +25,17 @@ push @tokens, $start;
 while(<>) {
 
     if(/^#####*\t\s*([^\s].*)$/) {
-		push @tokens, $h1;
-		$lines .= $1;
-		next;
+		if($tokens[-1] == $blank) {
+			push @tokens, $h1;
+			$lines .= $_;
+			$_ = <>;
+			if(/^\s*$/) {
+				push @tokens, $blank;
+				$lines .= $_;
+				next;
+			}
+
+		}
 	}
 
 	if(/^=====*\t\s*([^\s].*)$/) {
