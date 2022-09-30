@@ -39,7 +39,7 @@ while(<>) {
 	}
 
 	if(/^=====*\t\s*([^\s].*)$/) {
-		push @tokens, $1;
+		push @tokens, $h2;
 		$lines .= $_;
 		next;
 	}
