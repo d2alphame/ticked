@@ -1,2 +1,2 @@
 # ticked
-Ticked is a flavor of Markdown
+Ticked is a lightweight document markup language

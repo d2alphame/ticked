@@ -1,1 +1,55 @@
-use v5.26
+#! /usr/bin/perl
+use v5.26;
+use strict;
+use warnings;
+
+my $bold = 0;
+my $italics = 0;
+
+
+while(<DATA>) {
+	{
+		if(/\G(?=\*)/) {
+			if(/ \G \*\* /gcx) {
+				if($bold) {
+					$bold = 0;
+					print '</strong>';
+					redo;
+				}
+				else {
+					$bold = 1;
+					print '<strong>';
+					redo
+				}
+			}
+		}
+		elsif(m<\G(?=/)>gcx) {
+			if(m{ \G (?<! [A-Za-z0-9+.-]:) //}gcx) {
+				if($italics) {
+					$italics = 0;
+					print '</em>';
+					redo;
+				}
+				else {
+					$italics = 1;
+					print '<em>';
+					redo;
+				}
+			}
+		}
+
+		if(/\G(.)/gcx) {
+			print $1;
+			redo;
+		}
+		
+		
+	}
+}
+
+sub parse_bold {
+	say "Got bold";
+}
+
+__DATA__
+This should be **bold** this should be //italics//. But https://no-italics should not be italics
