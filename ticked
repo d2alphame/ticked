@@ -7,36 +7,10 @@ my $bold = 0;
 my $italics = 0;
 
 
-while(<DATA>) {
+while(<>) {
 	{
-		if(/\G(?=\*)/) {
-			if(/ \G \*\* /gcx) {
-				if($bold) {
-					$bold = 0;
-					print '</strong>';
-					redo;
-				}
-				else {
-					$bold = 1;
-					print '<strong>';
-					redo
-				}
-			}
-		}
-		elsif(m<\G(?=/)>gcx) {
-			if(m{ \G (?<! [A-Za-z0-9+.-]:) //}gcx) {
-				if($italics) {
-					$italics = 0;
-					print '</em>';
-					redo;
-				}
-				else {
-					$italics = 1;
-					print '<em>';
-					redo;
-				}
-			}
-		}
+		if(/\G(?=\*)/) 			{ parse_bold(); 	}				# Lookahead and parse for <strong>
+		elsif(m<\G(?=/)>gcx) 	{ parse_italics();	}				# Lookahead and parse for <em>
 
 		if(/\G(.)/gcx) {
 			print $1;
@@ -47,9 +21,103 @@ while(<DATA>) {
 	}
 }
 
+
 sub parse_bold {
-	say "Got bold";
+	{
+		if(/\G \*\*/gcx) {
+			unless($bold) {
+				$bold = 1;
+				print '<strong>';
+				if(/(?=\/)/) {
+					parse_italics();
+				}
+				else {
+					print $1 if /\G(.)/gc;
+					redo;
+				}
+			}
+			else {
+				$bold = 0;
+				print '</strong>';
+				return;
+			}
+		}
+	}
+}
+
+
+sub parse_italics {
+	{
+		if(m{ \G (?<! [A-Za-z0-9+.-]:) //}gcx) {
+			unless($italics) {
+				$italics = 1;
+				print '<em>';
+				if(/(?=\*)/) {
+					parse_bold();
+				}
+				else {
+					print $1 if /\G(.)/gc;
+					redo;
+				}
+			}
+			else {
+				$italics = 0;
+				print '</em>';
+				return;
+			}
+		}
+	}
+}
+
+
+sub reader_init {
+	my $filename = shift;
+	open(my $file, '<', $filename) or die "Coud not open file $filename: $! \n";
+	my $buffer = "";				# The peek or lookahead buffer
+	my $current = "";
+	my $previous = "";
+
+	return sub {
+
+		my %subs = (
+			read => sub {
+				if($buffer) {
+					$previous = $current;
+					$current = $buffer;
+					$buffer = "";
+					return $current;
+				}
+				else {
+					$previous = $current;
+					$current = <$file>;
+					return $current;
+				}
+			},
+
+			peek => sub {
+				if($buffer) {
+					return $buffer;
+				}
+				else {
+					$buffer = <$file>;
+					return $buffer;
+				}
+			},
+
+			prev => sub {
+				return $previous;
+			}
+
+		);
+
+		my $sub = shift;
+		die "Invalid subroutine $sub specified\n" unless $subs{$sub};
+		return $subs{$sub}->();
+	}
 }
 
 __DATA__
 This should be **bold** this should be //italics//. But https://no-italics should not be italics
+This **should be //nested italics// within strong**
+This //should be **nested strong** within italics//
+This **should be //italics markers ** within strong
