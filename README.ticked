@@ -34,3 +34,14 @@ Surround with asterisks for strong, surround with slash for em, surround with
 backticks for code and surround with underscores to underline. For example
 This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
 `this` becomes code.
+
+=== URLs
+
+Ticked will recoginize urls just by stating them. This url, http://example.com,
+for example, will be automatically recognized by ticked. Reference-style urls
+can also be used just by surrounding it with square brackets like [example]
+
+::References
+example | <http://example.com>
+click here | <https://clickhere.com>
+1. <http://anotherexample.com>
