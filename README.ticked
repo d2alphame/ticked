@@ -1,0 +1,19 @@
+= Ticked
+
+== This is H2
+
+Ticked is a markdown-like lightweight markup language. But why, you may ask.
+Why would you create yet another dialect of markdown? The answer is simple
+really because I want to, and because I can. :D
+
+= Headers
+
+Headers are prefixed with the equals sign (=). The number of equals sign
+determines the heading level. For example:
+
+= This is H1
+
+== This is H2
+
+=== This is H3
+
