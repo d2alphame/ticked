@@ -8,8 +8,8 @@ really because I want to, and because I can. :D
 
 = Headers
 
-Headers are prefixed with the equals sign (=). The number of equals sign
-determines the heading level. For example:
+Headers are prefixed with the equals sign (=) followed by at least 1 whitespace.
+The number of equals sign determines the heading level. For example:
 
 = This is H1
 
@@ -17,3 +17,20 @@ determines the heading level. For example:
 
 === This is H3
 
+Also note that headers are surrounded by blank lines.
+
+== Paragraphs
+
+A paragraph is a group of non-blank lines separated by blank lines. This, for
+example, forms a paragraph.
+
+This also forms a paragraph.
+
+And this is also another paragraph.
+
+== Inline elements
+
+Surround with asterisks for strong, surround with slash for em, surround with
+backticks for code and surround with underscores to underline. For example
+This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
+`this` becomes code.
