@@ -41,6 +41,17 @@ Ticked will recoginize urls just by stating them. This url, http://example.com,
 for example, will be automatically recognized by ticked. Reference-style urls
 can also be used just by surrounding it with square brackets like [example].
 
+
+=== Verbatim
+
+Ticked uses braces to stop processing ticked markup characters. Anything between
+an opening brace and a closing brace is not ticked-processed and will appear
+as-is. The only exceptions are the backslash(\) and the closing brace (}). Use
+the backslash to escape both.  
+For example { everything here is closed in braces, and will appear as-is. *
+appears as asterisk, / appears as slash etc. The exceptions are the backslash
+and the closing brace. Use \\ to add a backslash and \} to add a closing brace } 
+
 == Blockquotes
 
 Each line of a blockquote begins with a tab or space and ends with a line that
@@ -56,7 +67,15 @@ begins a tab or space followed by double dashes. For example:
     -- Katara, ATLA
 
 The last line is the citation for the quote and the source is /not/ necessary.
-So, that could just have been just the double dashes (which is necessary)
+So, that could just have been just the double dashes (which is necessary).
+
+Here's another example of a blockquote without the citing the source. Note the
+double dashes at the end that marks the end of the quote
+
+    I don't know the answer. Sometimes life is like this dark tunnel. You can't
+    always see the light at the end of the tunnel. But if you just keep moving,
+    you will come to a better place.
+    --
 
 == Lists
 
@@ -89,9 +108,6 @@ For unordered lists, use the + symbol for each item.
 % Air Nomads:
     Air Nomads are a nomadic tribe. Aang, is from this tribe and was raised by
     monks. 
-
-
-    
 
 
 ::References
