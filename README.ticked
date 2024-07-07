@@ -28,6 +28,9 @@ This also forms a paragraph.
 
 And this is also another paragraph.
 
+Use the apostrophe to escape ticked formatting characters. Escape the asterisk
+with '*, escape the slash with '/.
+
 == Inline elements
 
 Surround with asterisks for strong, surround with slash for em, surround with
@@ -38,8 +41,8 @@ This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
 === URLs
 
 Ticked will recoginize urls just by stating them. This url, http://example.com,
-for example, will be automatically recognized by ticked. Reference-style urls
-can also be used just by surrounding it with square brackets like [example].
+for example, will be automatically be recognized by ticked. The domain part of
+the url will be used as the text.
 
 
 === Verbatim
@@ -50,7 +53,11 @@ as-is. The only exceptions are the backslash(\) and the closing brace (}). Use
 the backslash to escape both.  
 For example { everything here is closed in braces, and will appear as-is. *
 appears as asterisk, / appears as slash etc. The exceptions are the backslash
-and the closing brace. Use \\ to add a backslash and \} to add a closing brace } 
+and the closing brace. Use \\ to add a backslash and \} to add a closing brace }
+
+=== HTML
+
+Raw HTML can be used 
 
 == Blockquotes
 
