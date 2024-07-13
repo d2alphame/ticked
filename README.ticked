@@ -28,8 +28,10 @@ This also forms a paragraph.
 
 And this is also another paragraph.
 
+== Escaping characters
+
 Use the apostrophe to escape ticked formatting characters. Escape the asterisk
-with '*, escape the slash with '/.
+with '*, escape the slash with '/, escape the backticks with '`, etc.
 
 == Inline elements
 
@@ -41,8 +43,10 @@ This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
 === URLs
 
 Ticked will recoginize urls just by stating them. This url, http://example.com,
-for example, will be automatically be recognized by ticked. The domain part of
-the url will be used as the text.
+for example, will be automatically recognized by ticked. The domain part of
+the url will be used as the text. If there's a custom text to specify for the
+url, use square brackets like this: [Avatar | https://atla.com]. Or if you
+prefer reference style urls [Azula]
 
 
 === Verbatim
@@ -58,6 +62,26 @@ and the closing brace. Use \\ to add a backslash and \} to add a closing brace }
 === HTML
 
 Raw HTML can be used 
+
+== A note on formatting markers
+
+Besides being escaped and appearing in verbatim elements, there are other times
+when formatting markers appear as is.
+
+An opening marker followed immediately by whitespace will not have formatting
+applied. For example * this will not become strong*, / this will not become
+em/ and ` this will not become code`. Notice the whitespace after the opening
+marker in each case.
+
+A closing marker preceded immediately by a whitespace also doesn't get
+formatted.  
+This *will not become strong *. Note the whitespace preceding the closing
+marker.  
+This /will not become em /. Again, note the whitespace preceding the closing
+marker.
+
+Two consecutive markers such as ** or // or `` etc will also have no effect and
+will appear as is.
 
 == Blockquotes
 
@@ -117,8 +141,9 @@ For unordered lists, use the + symbol for each item.
     monks. 
 
 
-::References
-[example] <http://example.com>
-1. click here <https://clickhere.com>
-2. This  <http://anotherexample.com>
-[Google] <https://google.com>
+
+:: References
+1. https://clickhere.com clickity
+2. http://anotherexample.com
+Google | https://google.com
+Azula's website | https://azula.fn Azula
