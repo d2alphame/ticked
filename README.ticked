@@ -172,8 +172,8 @@ Definition lists are written as follows:
 
 == Code fences
 
-Blocks of code, (or even code-like block) can be added between a pair of lines
-that begin with {```}. For example
+Blocks of code, (or even code-like blocks) can be added between a pair of lines
+that begin with {```}, that is 3 backtick characters. For example
 ```
 for $char(@benders) {
     say $char{element}
@@ -183,6 +183,28 @@ for $char(@benders) {
 
 == Admonitions
 
+Admonitions are added between a pair of lines that begin with 3 apostrophes. The
+type of admonition is stated alongside the opening markers. 4 types of
+admonitions recognized by ticked are 'Tip', 'Note', 'Caution', and 'Warning'.
+Here are examples:
+'''Tip
+You need to have a stubborn character to do earthbending right.
+'''
+
+Here's an example of a note:
+'''Note
+Everyone needs to visit Wan Shi Tong's library at least once in their life.
+'''
+
+A caution:
+'''Caution
+Momo is the deadliest member of Team Avatar.
+'''
+
+A warning:
+'''Warning
+Never piss off an Avatar in any interactions you may have with them.
+'''
 
 
 == Writing <references>
