@@ -71,7 +71,7 @@ Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
 section that looks like this:
 ```
-1. King Bumi Archives <https://bumi.msh.ek/archives>
+1. King Bumi Archives | https://bumi.msh.ek/archives
 ```
 Another way to link with that same reference would be something like [this |1].
 (See [how to write references])
