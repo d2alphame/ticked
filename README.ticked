@@ -56,7 +56,12 @@ custom text to specify for the url, use square brackets
 like [this example | https://example.com].
 
 The url could be relative, meaning it is a path in the current website. For this
-just use the 'path' part of the url [like this | /path/to/file.ext]
+just use the 'path' part of the url [like this | /path/to/file.ext].
+
+Just the fragment part of the url could also be specified. When only the
+fragment is specified, then the fragment points to a section of the current
+page. For example [go to the section about blockquotes | #blockquote].
+
 
 === Verbatim
 
