@@ -68,9 +68,13 @@ this paragraph is about linking a <url>. This paragraph can then be linked as a
 page fragment like this: [linking urls | <url>].
 
 Urls can be linked to in reference style. For example,
-visit [King Bumi Archives]. Do this by surrounding the url's text in square
-brackets. Ticked uses the text as a lookup key in the references to fetch the
-url. (See [how to write references | <references> ])
+visit [King Bumi Archives]. This means there's reference in the reference
+section that looks like this:
+```
+1. King Bumi Archives <https://bumi.msh.ek/archives>
+```
+Another way to link with that same reference would be something like [this |1].
+(See [how to write references])
 
 === Verbatim
 
@@ -166,8 +170,9 @@ Definition lists are written as follows:
     monks. 
 
 
-== Writing references
+== Writing <references>
 
 
 :: References
 1. King Bumi Archives | https://bumi.msh.ek/archives
+2. how to write references | <references>
