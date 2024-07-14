@@ -60,8 +60,12 @@ just use the 'path' part of the url [like this | /path/to/file.ext].
 
 Just the fragment part of the url could also be specified. When only the
 fragment is specified, then the fragment points to a section of the current
-page. For example [go to the section about blockquotes | #blockquote].
+page. For example [go to the section about urls | #url].
 
+Any phrase within a paragraph or header can be used to 'id' said paragraph or
+header. This is done by surrounding the phrase in angular brackets. For example,
+this section is about linking a <url>. This paragraph can then be linked as a
+page fragment like this: [linking urls | #url].
 
 === Verbatim
 
