@@ -60,12 +60,17 @@ just use the 'path' part of the url [like this | /path/to/file.ext].
 
 Just the fragment part of the url could also be specified. When only the
 fragment is specified, then the fragment points to a section of the current
-page. For example [go to the section about urls | #url].
+page. For example [go to the section about urls | <url>].
 
 Any phrase within a paragraph or header can be used to 'id' said paragraph or
 header. This is done by surrounding the phrase in angular brackets. For example,
-this section is about linking a <url>. This paragraph can then be linked as a
-page fragment like this: [linking urls | #url].
+this paragraph is about linking a <url>. This paragraph can then be linked as a
+page fragment like this: [linking urls | <url>].
+
+Urls can be linked to in reference style. For example,
+visit [King Bumi Archives]. Do this by surrounding the url's text in square
+brackets. Ticked uses the text as a lookup key in the references to fetch the
+url. (See [how to write references | <references> ])
 
 === Verbatim
 
@@ -106,7 +111,7 @@ will appear as is.
 Each line of a blockquote begins with a tab or space and ends with a line that
 begins a tab or space followed by double dashes. For example:
 
-    Water, Earth, Fire, Air.  Long age, the four nations lived together in
+    Water, Earth, Fire, Air.  Long ago, the four nations lived together in
     harmony. Then, everything changed when the Fire Nation attacked. Only the
     Avatar, master of all four elements, could stop them. But when the world
     needed him most, he vanished. A hundred years passed and my brother and I
@@ -142,26 +147,27 @@ For unordered lists, use the + symbol for each item.
 + Fire
 + Air
 
-% Water Tribe:
+Definition lists are written as follows:
+
+- Water Tribe:
     The water tribe consists of 2 tribes - The Northern Water Tribe and the
     Southern Water Tribe. Katara is from the Southern Water Tribe.
 
-% Fire Nation:
+- Fire Nation:
     This is the fiercest of the 4. The Fire Nation genocided the Air Nomads and
     started the 100 year war.
 
-% Earth Kingdom:
+- Earth Kingdom:
     The Earth Kingdom is the biggest. Omashu and Ba Sing Se are parts of the
     Earth Kingdom.
 
-% Air Nomads:
+- Air Nomads:
     Air Nomads are a nomadic tribe. Aang, is from this tribe and was raised by
     monks. 
 
 
+== Writing references
+
 
 :: References
-1. https://clickhere.com clickity
-2. http://anotherexample.com
-Google | https://google.com
-Azula's website | https://azula.fn Azula
+1. King Bumi Archives | https://bumi.msh.ek/archives
