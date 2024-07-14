@@ -1,10 +1,12 @@
 = Ticked
 
+
 == This is H2
 
 Ticked is a markdown-like lightweight markup language. But why, you may ask.
 Why would you create yet another dialect of markdown? The answer is simple
 really because I want to, and because I can. :D
+
 
 = Headers
 
@@ -13,11 +15,14 @@ The number of equals sign determines the heading level. For example:
 
 = This is H1
 
+
 == This is H2
+
 
 === This is H3
 
 Also note that headers are surrounded by blank lines.
+
 
 == Paragraphs
 
@@ -28,10 +33,12 @@ This also forms a paragraph.
 
 And this is also another paragraph.
 
+
 == Escaping characters
 
 Use the apostrophe to escape ticked formatting characters. Escape the asterisk
 with '*, escape the slash with '/, escape the backticks with '`, etc.
+
 
 == Inline elements
 
@@ -40,14 +47,16 @@ backticks for code and surround with underscores to underline. For example
 This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
 `this` becomes code.
 
+
 === URLs
 
-Ticked will recoginize urls just by stating them. This url, http://example.com,
-for example, will be automatically recognized by ticked. The domain part of
-the url will be used as the text. If there's a custom text to specify for the
-url, use square brackets like this: [Avatar | https://atla.com]. Or if you
-prefer reference style urls [Azula]
+Urls are specified in square brackets like [proto://domain.tld]. When stated in
+this form, the domain part of the url becomes the url's text. If there's a 
+custom text to specify for the url, use square brackets
+like [this example | https://example.com].
 
+The url could be relative, meaning it is a path in the current website. For this
+just use the 'path' part of the url [like this | /path/to/file.ext]
 
 === Verbatim
 
@@ -63,7 +72,7 @@ and the closing brace. Use \\ to add a backslash and \} to add a closing brace }
 
 Raw HTML can be used 
 
-== A note on formatting markers
+=== A note on formatting markers
 
 Besides being escaped and appearing in verbatim elements, there are other times
 when formatting markers appear as is.
