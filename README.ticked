@@ -207,6 +207,16 @@ Never piss off an Avatar in any interactions you may have with them.
 '''
 
 
+== Breaks
+
+3 consecutive dashes on a line by itself makes a horizontal rule.
+---
+End a line with at least 2 spaces (could be more) to insert a hard line break.
+In html that would be {<br />}.  
+This would be on one line, it ends with 2 spaces.  
+This would be on a different line from the previous one.
+ 
+
 == Writing <references>
 
 
