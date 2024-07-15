@@ -76,19 +76,20 @@ section that looks like this:
 Another way to link with that same reference would be something like [this |1].
 (See [how to write references])
 
+
 === Verbatim
 
 Ticked uses braces to stop processing ticked markup characters. Anything between
 an opening brace and a closing brace is not ticked-processed and will appear
-as-is. The only exceptions are the backslash(\) and the closing brace (}). Use
-the backslash to escape both.  
+as-is.
 For example { everything here is closed in braces, and will appear as-is. *
-appears as asterisk, / appears as slash etc. The exceptions are the backslash
-and the closing brace. Use \\ to add a backslash and \} to add a closing brace }
+appears as asterisk, / appears as slash etc. }
+
 
 === HTML
 
-Raw HTML can be used 
+Raw HTML can be used in ticked.  
+
 
 === A note on formatting markers
 
@@ -181,7 +182,7 @@ for $char(@benders) {
 ```
 
 
-== Admonitions
+== Admonitions and Sidebars
 
 Admonitions are added between a pair of lines that begin with 3 apostrophes. The
 type of admonition is stated alongside the opening markers. 4 types of
@@ -206,8 +207,14 @@ A warning:
 Never piss off an Avatar in any interactions you may have with them.
 '''
 
+A sidebar is exactly the same except without admonition labels. What follows is
+an example
+'''
+The bending arts of the Avatar world are based on real life Martial arts.
+'''
 
-== Breaks
+
+== Horizontal rules and line breaks
 
 3 consecutive dashes on a line by itself makes a horizontal rule.
 ---
