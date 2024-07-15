@@ -56,16 +56,16 @@ custom text to specify for the url, use square brackets
 like [this example | https://example.com].
 
 The url could be relative, meaning it is a path in the current website. For this
-just use the 'path' part of the url [like this | /path/to/file.ext].
+just use the 'path' part of the url [like this | /path/to/file.ext]
+or [this | another/path/file.ext]
 
-Just the fragment part of the url could also be specified. When only the
-fragment is specified, then the fragment points to a section of the current
-page. For example [go to the section about urls | <url>].
+When only the fragment is specified, then the fragment points to a section of
+the current page. For example [go to the section about urls | ^url^].
 
 Any phrase within a paragraph or header can be used to 'id' said paragraph or
-header. This is done by surrounding the phrase in angular brackets. For example,
-this paragraph is about linking a <url>. This paragraph can then be linked as a
-page fragment like this: [linking urls | <url>].
+header. This is done by surrounding the phrase in carets ( ^). For example,
+this paragraph is about linking a ^url^. This paragraph can then be linked as a
+page fragment like this: [linking urls | ^url^].
 
 Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
@@ -113,7 +113,7 @@ will appear as is.
 == Blockquotes
 
 Each line of a blockquote begins with a tab or space and ends with a line that
-begins a tab or space followed by double dashes. For example:
+begins with a tab or space followed by double dashes. For example:
 
     Water, Earth, Fire, Air.  Long ago, the four nations lived together in
     harmony. Then, everything changed when the Fire Nation attacked. Only the
@@ -215,9 +215,9 @@ End a line with at least 2 spaces (could be more) to insert a hard line break.
 In html that would be {<br />}.  
 This would be on one line, it ends with 2 spaces.  
 This would be on a different line from the previous one.
- 
 
-== Writing <references>
+
+== Writing ^references^
 
 
 :: References
