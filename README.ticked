@@ -77,6 +77,8 @@ If the id is too long, ugly, and'/or unsightly, alias it in the reference
 section and use it to id a paragraph. To make use of the alias, add it to the
 end of the paragraph and prefix it with a tilde (`~`). ~aliasing
 
+Link to that fragment [this way| ~aliasing].
+
 Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
 section that looks like this:
