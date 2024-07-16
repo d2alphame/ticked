@@ -64,12 +64,18 @@ the current page. For example [go to the section about urls| #url].
 
 Any word within a paragraph or header can be used to 'id' said paragraph or
 header. This is done by preceding the id with a hash (`#`) symbol. For example,
-this paragraph is about linking a #url. This paragraph can then be linked to as a
-page fragment like this: [linking urls| #url].
+this paragraph is about linking a #url. This paragraph can then be linked to as
+a page fragment like this: [linking urls| #url].
 
 If the word to be used as id for the paragraph or header does not appear in the
 paragraph or header, append the word to the end of the paragraph (or header)
 with double hashes (`##`) -  like this paragraph. ##fragments
+
+That paragraph can then be linked to the usual way: [See fragments| #fragments].
+
+If the id is too long, ugly, and'/or unsightly, alias it in the reference
+section and use it to id a paragraph. To make use of the alias, add it to the
+end of the paragraph and prefix it with a tilde (`~`). ~aliasing
 
 Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
@@ -242,3 +248,4 @@ of the file. Here's what the references section of this file looks like:
 :: References
 1. King Bumi Archives| https://bumi.msh.ek/archives
 2. how to write references| #references
+aliasing the:paragraph.has_long-or~ugly/id
