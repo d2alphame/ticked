@@ -65,7 +65,11 @@ the current page. For example [go to the section about urls| #url].
 Any word within a paragraph or header can be used to 'id' said paragraph or
 header. This is done by preceding the id with a hash (`#`) symbol. For example,
 this paragraph is about linking a #url. This paragraph can then be linked to as a
-page fragment like this: [linking urls | #url].
+page fragment like this: [linking urls| #url].
+
+If the word to be used as id for the paragraph or header does not appear in the
+paragraph or header, append the word to the end of the paragraph (or header)
+with double hashes (`##`) -  like this paragraph. ##fragments
 
 Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
