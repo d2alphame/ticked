@@ -53,27 +53,27 @@ This *word* becomes strong, /this/ one becomes em, _this_ becomes underline and
 Urls are specified in square brackets like [proto://domain.tld]. When stated in
 this form, the domain part of the url becomes the url's text. If there's a 
 custom text to specify for the url, use square brackets
-like [this example | https://example.com].
+like [this example| https://example.com].
 
 The url could be relative, meaning it is a path in the current website. For this
-just use the 'path' part of the url [like this | /path/to/file.ext]
-or [this | another/path/file.ext]
+just use the 'path' part of the url [like this| /path/to/file.ext]
+or [this| another/path/file.ext]
 
 When only the fragment is specified, then the fragment points to a section of
-the current page. For example [go to the section about urls | ^url^].
+the current page. For example [go to the section about urls| #url].
 
-Any phrase within a paragraph or header can be used to 'id' said paragraph or
-header. This is done by surrounding the phrase in carets ( ^). For example,
-this paragraph is about linking a ^url^. This paragraph can then be linked as a
-page fragment like this: [linking urls | ^url^].
+Any word within a paragraph or header can be used to 'id' said paragraph or
+header. This is done by preceding the id with a hash (`#`) symbol. For example,
+this paragraph is about linking a #url. This paragraph can then be linked to as a
+page fragment like this: [linking urls | #url].
 
 Urls can be linked to in reference style. For example,
 visit [King Bumi Archives]. This means there's reference in the reference
 section that looks like this:
 ```
-1. King Bumi Archives | https://bumi.msh.ek/archives
+1. King Bumi Archives| ftps://bumi.msh.ek/archives
 ```
-Another way to link with that same reference would be something like [this |1].
+Another way to link with that same reference would be something like [this|1].
 (See [how to write references])
 
 
@@ -224,17 +224,17 @@ This would be on one line, it ends with 2 spaces.
 This would be on a different line from the previous one.
 
 
-== Writing ^references^
+== Writing #references
 
 The reference section appears at the end of the file. It is marked
-by `:: References`. The references section does *not* appear in the final output
+by `:: References`, and does *not* appear in the final output
 of the file. Here's what the references section of this file looks like:
 ```
 :: References
-1. King Bumi Archives | ftps://bumi.msh.ek/archives
-2. how to write references | ^<references^
+1. King Bumi Archives| ftps://bumi.msh.ek/archives
+2. how to write references| #references
 ```
 
 :: References
-1. King Bumi Archives | https://bumi.msh.ek/archives
-2. how to write references | <references>
+1. King Bumi Archives| https://bumi.msh.ek/archives
+2. how to write references| #references
