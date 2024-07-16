@@ -226,6 +226,14 @@ This would be on a different line from the previous one.
 
 == Writing ^references^
 
+The reference section appears at the end of the file. It is marked
+by `:: References`. The references section does *not* appear in the final output
+of the file. Here's what the references section of this file looks like:
+```
+:: References
+1. King Bumi Archives | ftps://bumi.msh.ek/archives
+2. how to write references | ^<references^
+```
 
 :: References
 1. King Bumi Archives | https://bumi.msh.ek/archives
